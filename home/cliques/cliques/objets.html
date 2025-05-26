@@ -1,0 +1,138 @@
+ <style>
+ 	body{
+  background-color:black;
+}
+
+/* ===== main container ===== */
+.objets {
+	flex-direction: column;
+	width: 230px;
+	border: 2px solid deeppink;
+	margin-bottom:10px;
+	margin-left:auto;
+	margin-right:auto;
+	background-color:black;
+	font-family: monospace;
+	font-size: 9px;
+	color: #715796;
+}
+/* ===== main header container ===== */
+.hfd {
+	flex-direction: column;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top:3px;
+	margin-bottom: 3px;
+	width: 95%;
+	padding:2px;
+	background-color:black;
+	border: 1px solid deeppink;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+/* ===== small headers ===== */
+.objets h1 {
+	font-family: Verdana;
+	font-size:10px;
+	font-weight:normal;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top:5px;
+	padding:2px;
+	letter-spacing: .09em;
+	line-height: .9em;
+	text-align: center;
+	color:#ffffff;
+	width: 95%;
+	height: 11px;
+	border: 1px solid deeppink;
+	background-color: black;
+}
+/* ===== box ===== */
+.objetinner {
+	flex-direction: column;
+	width: 172px;
+	height: 186px;
+	margin: auto;
+	background-image: url('../../../../i.ibb.co/dB61d8w/Untitled156-20240402062902.png');
+}
+/* ===== scrolling tray for collections ===== */
+.tray{
+	box-sizing: border-box;
+	width: 120px;
+	height: 43px;
+	top: 107px;
+	left: 26px;
+	border: 0px solid white;
+	position:relative;
+	
+	overflow-y:hidden;
+	white-space: nowrap;
+	align-items: flex-end;
+	justify-content: center;
+	flex-wrap:wrap;
+}
+.tray img {
+	margin:3px;
+}
+/* ===== area for your objets ===== */
+.myobjets {
+	display: flex;
+	align-items: flex-end;
+	justify-content: center;
+	flex-wrap:wrap;
+}
+.myobjets img {
+	margin:3px;
+}
+   /* Define scrollbar styles */
+        ::-webkit-scrollbar {
+            width: 3px; 
+          height: 8px;
+         /* Width of the scrollbar */
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black; 
+          border:1px deeppink solid; /* Color of the scrollbar track */
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: black; 
+          border:1px deeppink solid;/* Color of the scrollbar handle */
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: deeppink; /* Color of the scrollbar handle on hover */
+        }
+ </style><div class="objets">
+
+     <h1>my objets</h1>
+
+     <div class="myobjets">
+         <!-- put your objets here -->
+         <img src="../../../../i.ibb.co/6sVQsvc/pixil-frame-0-1.png">
+
+
+         <h1>collected objets</h1>
+         <div class="objetinner">
+             <div class=tray>
+                 <!-- put your collected objets here -->
+                 <a href="https://pastelhello.com/objets" target="_blank"><img src="../../../../i.ibb.co/RHVJgbc/fbear.png"></a>
+                 <a href="https://velvet-boutique.neocities.org/club" target="_blank"><img src="../../../../i.ibb.co/YPn1KnV/objetcompact.png"></a>
+                 <a href="https://blog.darylsun.page/cliques#content-objets" target="_blank"><img src="../../../../i.ibb.co/zxwRcQd/darylsun-objet.png"></a>
+                 <a href="https://milkteamoon.net/objets" target="_blank"><img src="../../../../i.ibb.co/yWdB6xz/placeholder.png"></a>
+                 <a href="https://milkteamoon.net/objets" target="_blank"><img src="../../../../i.ibb.co/yWdB6xz/placeholder.png"></a>
+                 <a href="https://milkteamoon.net/objets" target="_blank"><img src="../../../../i.ibb.co/yWdB6xz/placeholder.png"></a>
+
+             </div>
+         </div>
+         <div class="hfd">
+             <!-- objets button -->
+             <a href="https://milkteamoon.net/objets" target="_blank"><img src="../../../../i.ibb.co/H4z7W7L/Untitled157-20240402064503.png" style="margin-top:3px;"></a>
+         </div>
+     </div>

@@ -1,0 +1,225 @@
+/* Base Styles */
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: black;
+  cursor: url(../../assets/auto.png), auto;
+}
+
+header {
+    background-color: black;
+    color: deeppink;
+    padding: 1rem;
+    text-align: center;
+}
+
+#filters {
+    padding: 1rem;
+    background-color: black;
+    margin: 1rem;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  color:deeppink
+}
+
+.filter-group {
+    margin-bottom: 1rem;
+}
+
+#demon-list {
+    padding: 1rem;
+}
+
+.demons-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.demon-card {
+    background-color: black;
+  color: deeppink;
+    padding: 1rem;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    cursor: url(../../assets/pointer.png), auto;
+  border: deeppink 1px solid;
+}
+
+.demon-card:hover {
+    transform: scale(1.05);
+    transition: transform 0.2s;
+  color:white;
+}
+
+.demon-detail {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: black;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    width: 90%;
+    max-width: 400px;
+  color: white;
+  border: deeppink 1px solid;
+}
+
+.close-btn {
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: deeppink;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+     cursor: url(../../assets/pointer.png), auto;
+}
+
+.close-btn:hover {
+    background-color: black;
+}
+
+.error {
+    color: red;
+    text-align: center;
+}
+
+ footer {
+                background-color: black;
+                color: deeppink;
+                padding: 5px;
+                text-align: center;
+                position: fixed;
+                bottom: 0;
+                width: 100%;
+           border-top: solid deeppink 3px;}
+   
+/* Mobile Styles */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    #filters {
+        padding: 0.5rem;
+        margin: 0.5rem;
+    }
+
+    .filter-group {
+        margin-bottom: 0.5rem;
+    }
+
+    .filter-group label {
+        font-size: 0.9rem;
+    }
+
+    .filter-group select {
+        font-size: 0.9rem;
+        padding: 0.25rem;
+    }
+
+    .demons-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        gap: 0.5rem;
+    }
+
+    .demon-card {
+        padding: 0.75rem;
+    }
+
+    .demon-card h3 {
+        font-size: 1rem;
+    }
+
+    .demon-card .rank,
+    .demon-card .seal,
+    .demon-card .description {
+        font-size: 0.875rem;
+    }
+
+    .demon-detail {
+        padding: 1rem;
+        width: 95%;
+        max-width: 95%;
+    }
+
+    .demon-detail h3 {
+        font-size: 1.25rem;
+    }
+
+    .demon-detail .rank,
+    .demon-detail .number,
+    .demon-detail .seal,
+    .demon-detail .description {
+        font-size: 0.9rem;
+    }
+
+    .close-btn {
+        padding: 0.5rem;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.25rem;
+    }
+
+    #filters {
+        padding: 0.25rem;
+        margin: 0.25rem;
+    }
+
+    .filter-group label {
+        font-size: 0.8rem;
+    }
+
+    .filter-group select {
+        font-size: 0.8rem;
+        padding: 0.2rem;
+    }
+
+    .demons-grid {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+        gap: 0.25rem;
+    }
+
+    .demon-card {
+        padding: 0.5rem;
+    }
+
+    .demon-card h3 {
+        font-size: 0.9rem;
+    }
+
+    .demon-card .rank,
+    .demon-card .seal,
+    .demon-card .description {
+        font-size: 0.75rem;
+    }
+
+    .demon-detail {
+        padding: 0.75rem;
+    }
+
+    .demon-detail h3 {
+        font-size: 1rem;
+    }
+
+    .demon-detail .rank,
+    .demon-detail .number,
+    .demon-detail .seal,
+    .demon-detail .description {
+        font-size: 0.8rem;
+    }
+
+    .close-btn {
+        padding: 0.4rem;
+        font-size: 0.8rem;
+    }
+}

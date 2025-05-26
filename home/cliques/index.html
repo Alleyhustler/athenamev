@@ -1,0 +1,109 @@
+<style>
+    body, html {
+        background-color: black;
+        font-family: monospace;
+        color: deeppink;
+        cursor: url(../assets/auto.png), auto;
+        margin: 0;
+        scrollbar-width: thin;
+        scrollbar-color: deeppink black;
+    }
+    ::-webkit-scrollbar {
+        width: 10px;
+    }
+    ::-webkit-scrollbar-track {
+        background: black;
+    }
+    ::-webkit-scrollbar-thumb {
+        background-color: deeppink;
+        border-radius: 10px;
+    }
+    #sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 200px;
+        height: 100vh;
+        background-color: black;
+        padding: 20px;
+        display: flex;
+      border-right:solid deeppink 1px;
+        flex-direction: column;
+        gap: 10px;
+    }
+    #sidebar button {
+        background-color:black;
+        color: deeppink;
+        border: 1px solid deeppink;
+        padding: 10px;
+        margin: 5px 0;
+        cursor: pointer;
+        font-family: monospace;
+      cursor: url(../assets/pointer.png), auto;
+    }
+    #sidebar button:hover {
+        background-color: deeppink;
+        color: black;
+       cursor: url(../assets/pointer.png), auto;
+    }
+    #content {
+        margin-left: 220px;
+        padding: 20px;
+        color: white;
+    }
+    iframe {
+        width: 100%;
+        height: 700px;
+        border: none;
+    }
+  @font-face {
+    font-family: 'Pixellari';
+    src: url('../Pixellari.ttf') format('truetype');
+}
+body, html {
+    font-family: 'Pixellari', monospace;
+}
+</style>
+
+<div id="sidebar">
+  <button onclick="showContent('deckonomicon')">Deckonomicon</button>
+  <button onclick="showContent('CDworld')">CDworld</button>
+    <button onclick="showContent('mini-cliques')">Mini Cliques</button>
+    <button onclick="showContent('objets')">Objets</button>
+    <button onclick="showContent('chao-garden')">Chao Garden</button>
+  
+  
+   <center> <a href="../../Deckonomicon" target="_blank">
+    <img src="../assets/cardbutt2.gif" alt="Deckonomicon Button">
+</center>
+</div>
+
+<div id="content">
+    <div id="deckonomicon">
+        <iframe src="cliques/ccc/Deckonomicon.html"></iframe>
+    </div>
+  <div id="CDworld" style="display: none;">
+    <iframe src="cliques/Cdworld/Index.html"></iframe></div>
+    <div id="mini-cliques" style="display: none;">
+        <a href="https://jaysplace.neocities.org/">
+            <img src="../../../jaysplace.neocities.org/images/subdomains/codes/ss-btn-pink.png" alt="Mini Cliques">
+        </a>
+        <a href="https://lovesick.cafe/grrrl"> <img src="../assets/madebyagirl.png"></a>
+    </div>
+    <div id="objets" style="display: none;">
+        <iframe src="cliques/objets.html"></iframe>
+    </div>
+    <div id="chao-garden" style="display: none;">
+        <iframe src="cliques/Chao%20garden/Chaosgarden.html"></iframe>
+    </div>
+</div>
+
+<script>
+    function showContent(id) {
+        const sections = ['deckonomicon', 'mini-cliques', 'objets', 'chao-garden' , 'CDworld'];
+        sections.forEach(section => {
+            document.getElementById(section).style.display = 'none';
+        });
+        document.getElementById(id).style.display = 'block';
+    }
+</script>

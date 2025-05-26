@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page Not Found</title>
+    <style>
+        body {
+            font-family:monospace;
+            text-align: center;
+            padding: 50px;
+            background-color: black;
+        }
+        h1 {
+            font-size: 50px;
+            color: deeppink;
+        }
+        p {
+            font-size: 20px;
+            color: white;
+        }
+        .slot-machine {
+            display: flex;
+            justify-content: center;
+            font-size: 30px;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+        .slot {
+            width: 50px;
+            height: 50px;
+            background: white;
+          box-shadow: inset black 0 0 10px 4px;
+            border: 2px solid deeppink;
+            margin: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: #333;
+        }
+        button {
+            font-size: 20px;
+            padding: 10px 20px;
+            cursor: pointer;
+            background-color: deeppink;
+          box-shadow: inset indigo 0 0 6px;
+            color: white;
+            border:solid white 1px;
+            margin-top: 20px;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+    <h1>404</h1>
+    <p>Oops! The page you're looking for doesn't exist.</p>
+    <p>Spin the slot machine to win a new page</p>
+
+    <div class="slot-machine">
+        <div class="slot" id="slot1">❓</div>
+        <div class="slot" id="slot2">❓</div>
+        <div class="slot" id="slot3">❓</div>
+    </div>
+
+    <button onclick="spinSlots()">Spin</button>
+
+    <script>
+        const pages = [
+            "/home/home", 
+            "/home/covn", 
+            "/shrines/spacegodzilla", 
+            "/blog", 
+            "/shrines/kingcobrajfs", 
+            "/home/bookz" ,
+            "deckonomicon.html"
+        ]; 
+
+        function spinSlots() {
+            const symbols = ["🍒", "🔔", "⭐", "🍋", "💎", "🎰"];
+            const slot1 = document.getElementById("slot1");
+            const slot2 = document.getElementById("slot2");
+            const slot3 = document.getElementById("slot3");
+
+            let spins = 10;
+            let spinInterval = setInterval(() => {
+                slot1.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+                slot2.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+                slot3.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+                spins--;
+
+                if (spins === 0) {
+                    clearInterval(spinInterval);
+                    // Pick one final winning symbol
+                    let winningSymbol = symbols[Math.floor(Math.random() * symbols.length)];
+                    slot1.textContent = winningSymbol;
+                    slot2.textContent = winningSymbol;
+                    slot3.textContent = winningSymbol;
+
+                    let randomPage = pages[Math.floor(Math.random() * pages.length)];
+                    setTimeout(() => {
+                        window.location.href = randomPage;
+                    }, 1000);
+                }
+            }, 100);
+        }
+    </script>
+</body>
+</html>

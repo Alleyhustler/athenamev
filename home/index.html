@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+<!-- Mirrored from beelzebabe.neocities.org/home/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 May 2025 18:14:55 GMT -->
+<head>
+    <title>Athena MEV</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    
+    <!-- Unified Meta Descriptions -->
+    <meta property="og:title" content="beelzebabe.neocities.org" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="../index.html" />
+    <meta property="og:image" content="assets/meta.png" />
+    <meta property="og:description" content="A collection of esoteric pixel art, chaos magick resources, stamps, pixel dolls, patterns, and other eclectic curiosities. Explore the digital occult at beelzebabe.neocities.org." />
+    
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="beelzebabe.neocities.org" />
+    <meta name="twitter:description" content="A collection of esoteric pixel art, chaos magick resources, stamps, pixel dolls, patterns, and other eclectic curiosities. Explore the digital occult at beelzebabe.neocities.org." />
+    <meta name="twitter:image" content="assets/meta.png" />
+    
+    <meta name="description" content="A collection of esoteric pixel art, chaos magick resources, stamps, pixel dolls, patterns, and other eclectic curiosities. Explore the digital occult at beelzebabe.neocities.org." />
+    
+    <link rel="icon" type="image/x-icon" href="assets/bb.ico">
+
+ <script src="../../iframe.chat/scripts/main.min.js"></script>
+
+    <center>
+        <div id="main-content">
+            <!-- Your main content goes here -->
+ <style>
+ a{ cursor:  url(assets/pointer.png), auto;}
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                position: fixed;
+                right: 0;
+                top: 0;
+                height: 100%;
+                width: 90px; /* Adjust the width as needed */
+                background-color: black;
+                border: none;
+                transform: translateX(100%); /* Hide initially */
+                transition: transform 0.3s ease;
+            }
+            table {
+                width: 100%; /* Make table full width */
+                overflow: auto;
+            }
+            th, td {
+                padding: 15px; /* Adjust padding for smaller screens */
+                font-size: 14px; /* Adjust font size for smaller screens */
+                height:100%;
+            }
+        
+            .tab-button {
+                width: 100%; /* Make buttons full width */
+            }
+            footer {
+                background-color: black;
+                color: deeppink;
+                padding: 5px;
+                text-align: center;
+                position: fixed;
+                bottom: 0;
+                width: 100%;
+                border-top: solid deeppink 3px;
+            }
+            .toggle-button {
+                position: fixed;
+                bottom: 10px;
+                right: 10px;
+                background-color: black;
+                color: white;
+                border: solid 3px deeppink;
+                padding: 20px;
+                cursor: pointer;
+                border-radius: 50%; /* Make the button round */
+            }
+         .toggle-button:hover {
+            animation: shake 0.5s ease infinite, flash 1.5s infinite;
+        }
+           .toggle-button {
+            animation: shake 0.5s ease infinite;
+          }
+   }
+        @media (min-width: 769px) {
+            .container {
+                flex-direction: row;
+                justify-content: center;
+            
+            }
+            .footer {
+                background-color: #333;
+                color: deeppink;
+                padding: 5px;
+                text-align: center;
+                position: fixed;
+                bottom: 0;
+                
+                border-top: solid deeppink 3px;
+            }
+        }
+        body {
+           transition: all 0.5s ease;
+            margin: 0;
+            background-color: black;
+            color: white;
+            font-family: 'Pixellari', sans-serif;
+            cursor: url(assets/auto.png), auto;
+          
+        }
+        p {
+            font-size: 15px;
+            font-family: 'Pixellari', sans-serif;
+            
+        }
+         footer {
+                background-color: black;
+                color: deeppink;
+                padding: 5px;
+                text-align: center;
+                position: fixed;
+                bottom: 0;
+                width: 100%;
+           border-top: solid deeppink 3px;}
+   
+       table {
+            width: 100%; /* Full width */
+            max-width: 900px; /* Max width */
+            border: solid deeppink 3px;
+            margin: 30px auto; /* Center table */
+            word-wrap: break-word; /* Handle long content */
+            font-family: 'Pixellari', sans-serif;
+
+            
+        }
+
+        th, td {
+            padding: 5px; /* More padding */
+        }
+
+        td {
+            border: 1px solid deeppink;
+            padding: 15px;
+        }
+        
+        .container {
+            display: flex;
+            gap: 10px;
+            background-color: black;
+            padding: 20px;
+            border: solid deeppink 3px;
+        }
+        ::-webkit-scrollbar {
+            width: 3px; /* Set the width of the scrollbar */
+        }
+        /* Customize scrollbar track */
+        ::-webkit-scrollbar-track {
+            background: black; /* Set track background color */
+        }
+        /* Customize scrollbar thumb */
+        ::-webkit-scrollbar-thumb {
+            background: black;
+            border: deeppink solid 1px; /* Set thumb color */
+        }
+        .tab-button {
+            padding: 10px;
+           
+            transition: transform 0.3s;
+            color: white;
+            cursor: url('assets/pointer.png'), auto;
+        }
+        .tab-button:hover {
+            animation: shake 0.5s ease infinite, flash 1.5s infinite;
+        }
+        .active {
+          background-color:black;
+          /* Active tab button background color */
+        }
+        .tab-content {
+            display: none;
+         
+        }
+        .tab-content.active {
+            display: block;
+            padding: 0px;  
+            overflow: scroll;
+          
+        }
+        @keyframes flash {
+            0%, 100% {
+                color: deeppink;
+            }
+            25% {
+                color: cyan;
+            }
+            50% {
+                color: lime;
+            }
+            75% {
+                color: black;
+            }
+        }
+   h1{
+         animation: shake 0.5s ease infinite, flash 1.5s infinite;
+         font-family:'GothicPixels', monospace;
+         letter-spacing: 3px;
+   }
+        h2 {
+            color: deeppink;
+            font-family: 'Pixellari', sans-serif;
+
+            
+        }
+        .src {
+            cursor: url(../../beelzebabe.lexiqqq.com/Buttons/assets/pointer.png), auto;
+        }
+        .bbutton {
+            color: white;
+             cursor: url('assets/pointer.png'), auto;
+             font-weight:bold;
+             text-decoration: none;
+             border: solid 1px white;
+             padding: 6px;
+             box-shadow: inset deeppink 0 0 3px 3px;
+        }
+        .bbutton:hover{
+          color: deeppink;
+          background-image: url('pattern-display/patterns/sparkles1.gif');
+          }
+    }
+        .iframe{
+          max-height: 100vh;
+          }
+   
+        .glitch {
+            animation: glitch 0.2s infinite;
+        }
+        @keyframes glitch {
+            0% { transform: translate(2px, -2px) skew(2deg, -2deg); filter: hue-rotate(20deg); }
+            50% { transform: translate(-2px, 2px) skew(-2deg, 2deg); filter: hue-rotate(180deg); }
+            100% { transform: translate(2px, -2px) skew(2deg, -2deg); filter: hue-rotate(360deg); }
+        }
+        .nav {
+    color: deeppink;
+    text-decoration: none;
+    background-color:deeppink ;
+}
+
+.nav:active {
+    color: white;
+}
+        @font-face {
+  font-family: 'GothicPixels';
+  src: url('GothicPixels.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Pixellari';
+  src: url('Pixellari.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+.table-container {
+  position: relative;
+  display: inline-block;
+  width: 100%; /* Adjust this to control table size */
+   /* Prevents excessive scaling */
+}
+
+table {
+  width: 100%; /* Makes table responsive */
+}
+
+/* General styling for corner images */
+.corner-image {
+  position: absolute;
+  width:auto; /* Adjusts based on table width */
+   /* Half of 354px for smaller screens */
+  height: auto;
+  margin-top: 50px;
+}
+
+/* Positioning for left image */
+.corner-image.left {
+  top: -15%; /* Moves it up relative to table height */
+  left: -3%; /* Slightly outside the table */
+}
+
+/* Positioning for right image */
+.corner-image.right {
+  top: -15%;
+  right: -3%;
+}
+html, body {
+    overflow-x: hidden;
+}
+   /* General styling for corner images */
+.corner-image2 {
+  position: absolute;
+  width:auto; /* djusts based on table width */
+  /* Half of 354px for smaller screens */
+  height: auto;
+  margin-top: 5px;
+}
+
+/* Positioning for left image */
+.corner-image2.left {
+  bottom: -10%; /* Moves it up relative to table height */
+  left: -0%; /* Slightly outside the table */
+}
+
+/* Positioning for right image */
+.corner-image2.right {
+  bottom: -10%;
+  right: -0%;
+}
+          </style>
+    </style>
+
+
+            </head>
+<!----Kofi widget---->
+<script src='../../storage.ko-fi.com/cdn/scripts/overlay-widget.js'></script>
+<script>
+  kofiWidgetOverlay.draw('beelzebabee', {
+    'type': 'floating-chat',
+    'floating-chat.donateButton.text': 'Ko-fi',
+    'floating-chat.donateButton.background-color': 'black',
+    'floating-chat.donateButton.text-color': 'deeppink'
+  });
+</script>
+
+<!----tabs---->
+            <body>
+                <div class="container" id="tab-container">
+                    <div class="tab-button" onclick="changeTabContent(1)">HOME</div>
+                    <div class="tab-button" onclick="changeTabContent(3)">SOL GODDOLLZ</div>
+                    <div class="tab-button" onclick="changeTabContent(4)">PATTERNZ</div>
+                    <div class="tab-button" onclick="changeTabContent(7)">CLIQUEZ</div>
+                    <div class="tab-button" onclick="changeTabContent(9)">GRAPHICZ</div>
+<a class="tab-button" href="https://x.com/AthenaMev" onclick="changeTabContent(10)">SOLANA $AMEV / BUY / X</a>
+                   
+                </div>
+
+                <div id="content">
+                    <!-- Initial content, replace with your own -->
+                    <div id="tab1-content" class="tab-content active">
+                        <center>
+                          <h1 id="title">Athena MEV / Solana Goddess</h1></center> 
+                    <div class="table-container">
+<img src="../../i.ibb.co/0pJphN4Z/Untitled348-20250323095010.png" alt="Left Corner Image" class="corner-image left">
+  <img src="../../i.ibb.co/gLtvBHsS/Untitled348-20250323094845.png" alt="Right Corner Image" class="corner-image right">
+                      <center>
+                            <table>
+                          
+
+                                <tbody>
+                                 
+                                    <tr>
+                                   
+                                        <td rowspan="2">
+                                                                                      <img src="assets/baphobabe.png" alt="Click Me" id="glitchImage">             
+
+
+                                            </center>
+                                            
+                                        </td>
+   <td> 
+                                                                                <center>
+                                        <iframe src="../Audio/index.html" frameborder="0" height="200px" width="100%" margin="10px" ></iframe>
+                                        </center>
+                                        <center>
+                          <p> Meet Athena the solana goddess</p>
+                           <style>
+  textarea { width: 80px; height: 30px; font-family: monospace; resize: none; background: black; color: grey; border: 1px solid; }
+  .copy-btn { margin-top: 10px; padding: 3px; cursor: pointer; background: black; color: white; border: 1px solid deeppink; }
+  .copy-btn:hover { background: deeppink; }
+</style>
+
+<div>
+  <a href="../index.html" target="_blank">
+    <img src="assets/Buttons/beelzebabe-new-spirals.gif" alt="Beelzebabe Button">
+  </a>
+</div>
+<textarea id="code" readonly>
+&lt;a href="https://beelzebabe.neocities.org" target="_blank"&gt;
+  &lt;img src="https://beelzebabe.neocities.org/home/assets/Buttons/beelzebabe-new-spirals.gif" alt="Beelzebabe Button"&gt;
+&lt;/a&gt;
+</textarea>
+<br>
+<button class="copy-btn" onclick="copyCode()">Copy Code</button>
+
+<script>
+  function copyCode() {
+    const codeBox = document.getElementById("code");
+    codeBox.select();
+    document.execCommand("copy");
+    alert("Code copied!");
+  }
+</script> </td>
+                                    </tr>
+                                  <tr>  <td> 
+                                            <center>
+                                              
+                                                
+                                               <h2> take a trip?</h2>
+<div class="container">
+                                              
+                                                 <div class="bbutton">
+                                                 <a href="Bookz/index.html" style="
+                                                 text-decoration:none; color: white;"
+                                                 >Library</a>
+                                                 </div>
+                                                 
+                                                   <div class="bbutton">
+                                                 <a href="Bookz/Ars_goetia/Index.html" style="
+                                                 text-decoration:none; color: white;"
+                                                 >72</a>
+                                                 </div>
+                                                 
+                                                  <div class="bbutton">
+                                                 <a href="covn/index.html" style="
+                                                 text-decoration:none; color: white;"
+                                                 >Church Ov Nothing</a>
+                                                 </div>
+                                                 
+                                                  <div class="bbutton">
+                                                 <a href="../Blog/post-make.html" style="
+                                                 text-decoration:none; color: white;"
+                                                 >RSS Post snippet creator</a>
+                                                 </div>
+                                                 
+                                </tr>
+                                </tbody>
+                            </table></div>
+  <div class="button-container"> 
+
+      </div>
+      
+      
+      <table> <tbody> <tr><td>
+      <center>   <img src="assets/smoking%20mantis%20pink.gif">
+      </center>
+        </td> <td>
+          <center>
+
+                                                    <iframe id="timestamp-iframe" src="timestamp-widget/timestamp.html" style="border: none; overflow: hidden;"></iframe>
+
+                                                </center>
+      <div class="status-wrapper">
+  <div id="statuscafe">
+    <div id="statuscafe-username"></div>
+    <div id="statuscafe-content"></div>
+  </div>
+  <div class="gem-bottom"></div>
+</div>
+
+<script src="../../status.cafe/current-statusa191.js?name=beelzebabe" defer></script>
+
+<style>
+  .status-wrapper {
+    display: inline-block;
+    width: 100%;
+    max-width: 500px;
+    margin: 1em auto;
+  }
+
+  #statuscafe {
+    padding: 1em;
+    background-color: black;
+    border: 2px solid deeppink;
+    border-radius: 0px;
+    box-shadow: 0 2px 8px rgba(255, 20, 147, 0.3);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: deeppink;
+  }
+
+  #statuscafe-username {
+    margin-bottom: 0.5em;
+    font-weight: bold;
+    font-size: 1.1em;
+    color: deeppink;
+  }
+
+  #statuscafe-content {
+    margin: 0 1em 0.75em 1em;
+    line-height: 1.5;
+    font-size: 0.95em;
+    color: deeppink;
+  }
+
+  a {
+    color: white;
+    text-decoration: none;
+  }
+
+  .gem-bottom {
+    height: 32px; /* Adjust if the gif height changes */
+    background-image: url('assets/tinygemdangler.gif');
+    background-repeat: repeat-x;
+    background-position: bottom;
+    background-size: auto;
+  }
+</style></td></tr></tbody></table>
+
+  </td></tr><tr><td>
+                            <iframe srcdoc='
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miniature Webring</title>
+                <script src="../../webring-ov-nothing.neocities.org/Embed/Script.js"></script>
+    <style>
+        /* Basic styles for the webring container */
+                body{
+     cursor: url(../../beelzebabe.wtf/Img/icons/Cursor/auto.png),auto;
+}
+                
+        #webring-ov {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 3px outset black;
+            border-radius: 5px;
+            background-image: url(../../i.ibb.co/vjMHJSS/img-20230520-041732.png);
+        }
+        
+        h1 {
+            color: deeppink;
+            font-family: monospace; 
+            font-size: 16px;
+            text-align: center;
+            text-transform: uppercase;
+            margin-top: auto;    
+        }
+        
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .button {
+            width: 66px;
+            font-size: 33px;
+            text-align: center; /* Align button text to the center */
+            background-color: black;
+            color:deeppink;
+            border-radius:6px;
+  cursor: url(../../beelzebabe.wtf/Img/icons/Cursor/grab.png),auto;
+        }
+    </style>
+</head>
+<body>
+<div id="webring-ov">
+    <h1>Webring Ov Nothing</h1>
+ 
+    <div class="button-container">
+        <button class="button" onclick="navigatePrevious()">&#8668;</button>
+        <button class="button" onclick="visitRandomSite()">&#8621;</button>
+        <button class="button" onclick="navigateNext()">&#8669;</button>
+    </div>
+</div>
+             
+</body>
+
+<!-- Mirrored from beelzebabe.neocities.org/home/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 May 2025 18:15:09 GMT -->
+</html>
+' style="width: 100%; height: 250px; border: none; ></iframe> style=" width: 100%; height: 250px; border: none;"></iframe>
+
+            </body>
+
+            <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                  const imageContainer = document.querySelector('.img';
+                  const audio = imageContainer.querySelector('.audio');
+                
+                  imageContainer.addEventListener('mouseenter', function() {
+                    audio.play();
+                  });
+                
+                  imageContainer.addEventListener('mouseleave', function() {
+                    audio.pause();
+                    audio.currentTime = 0;
+                  });
+                });
+            </script>
+            </iframe>
+    </center>
+                                                                                                                </td></tr>
+                                                                                                                <tr> <td>
+                                                                                                           <center>
+    <iframe 
+      class="scaled-iframe" 
+      src="https://magering.net/sites/beelzebabe.html" style="border: none; height: 250px;">
+    </iframe></center>
+  </div></tr></td></tbody></table>
+                                                                                   
+                                                                                  </div>
+    </div>
+
+
+    <div id="tab2-content" class="tab-content">
+        <center>
+            <h1>STAMPZ</h1>
+            <strong>
+                <p> made by me; free to use</p>
+            </strong>
+            <h2> Honeycomb </h2>
+
+
+
+            <img src="../../i.ibb.co/BVZnyTm/Honeycomb-Template-04-20240117165707.png" alt="Honeycomb-Template-04-20240117165707" border="0">
+            <img src="../../i.ibb.co/J3SH7Wt/Honeycomb-Template-04-20240117171139.png" alt="Honeycomb-Template-04-20240117171139" border="0">
+
+            <img src="../../i.ibb.co/Kmp5Bb4/Honeycomb-Template-04-20240117171215.png" alt="Honeycomb-Template-04-20240117171215" border="0">
+
+
+            <img src="../../i.ibb.co/4WFhwnQ/ezgif-com-animated-gif-maker.gif" alt="ezgif-com-animated-gif-maker" border="0">
+
+            <p> 99x57</p>
+
+
+            <img src="../../i.ibb.co/4MX7qjC/beelze88x31.png" alt="pink99ezgif-com-animated-gif-maker" border="0">
+
+            <img src="../../i.ibb.co/dDtJR9H/beelze88x31-5.png" alt="purple99" border="0">
+
+            <img src="../../i.ibb.co/cw6MbDR/beelze88x31-2.png" alt="blue99" border="0">
+
+            <img src="../../i.ibb.co/JRjc5X6/beelze88x31-6.png" alt="cyan99" border="0">
+
+            <img src="../../i.ibb.co/bXZzV7w/beelze88x31-4.png" alt="green99" border="0">
+
+            <img src="../../i.ibb.co/nnjkP3D/Untitled490-20240128022558.png" alt="red99" border="0">
+
+            <img src="../../i.ibb.co/WgTMrXp/ezgif-com-animated-gif-maker-39.gif" alt="ezgif-com-animated-gif-maker-39" border="0">
+
+            <img src="../../i.ibb.co/dcfy42h/ezgif-com-animated-gif-maker-34.gif" alt="ezgif-com-animated-gif-maker-34" border="0">
+
+            <img src="../../i.ibb.co/vPj8x2k/ezgif-com-animated-gif-maker-36.gif" alt="ezgif-com-animated-gif-maker-36" border="0">
+
+            <p>50x50</p>
+
+            <img src="../../i.ibb.co/W5rws4y/50x50-stamps-20240328062037.png" alt="50x50-stamps-20240328062037" border="0">
+
+      
+            <h1> BUTTONZ </h1>
+            <p> 88x31</p>
+            <img src="assets/Buttons/beelzebabe_fourth.gif">
+            <img src="assets/Buttons/beez-button3.gif">
+
+            <img src="assets/Buttons/button-bz.gif">
+
+ 
+            <img src="../../i.ibb.co/bRZK0Lz/ezgif-com-optimize-4.gif" alt="ezgif-com-optimize-4" border="0">
+            <img src="../../i.ibb.co/HGgFhdL/Beelzebabe.gif" alt="Beelzebabe" border="0">
+            <img src="../../i.ibb.co/kX3KQm3/Untitled51-20240414195425.png" alt="Untitled51-20240414195425" border="0">
+            <img src="../../i.ibb.co/Fg24CXW/Untitled51-20240414200025.png" alt="Untitled51-20240414200025" border="0">
+            <img src="../../i.ibb.co/DggP3tk/Untitled51-20240414195946.png" alt="Untitled51-20240414195946" border="0">
+            <h1>BLINKIES</h1>
+            <p> 150x20 </p>
+
+            <img src="../../i.ibb.co/xHT3wbx/ezgif-com-animated-gif-maker-43.gif" alt="ezgif-com-animated-gif-maker-43" border="0">
+
+
+    </div>
+    <div id="tab3-content" class="tab-content">
+        <center> <iframe src="dolls/docs/index.html" frameborder="0" height="750px" width="100%"></iframe></center>
+
+    </div>
+
+
+
+    <div id="tab4-content" class="tab-content">
+        <center> <iframe src="pattern-display/index.html" frameborder="0" height="750px" width="100%"></iframe></center>
+
+    </div>
+    <div id="tab5-content" class="tab-content">
+        <center> <!-- Content for the "websites" tab goes here -->
+            <center> <iframe src="linkz/index.html"sandbox="allow-scripts allow-forms" frameborder="0" height="750px" width="100%"></iframe></center>
+        </center>
+    </div>
+
+    <div id="tab6-content" class="tab-content">
+        <center>
+            <iframe src="../Blog/index.html" frameborder="0" height="750px" width="100%"></iframe>
+        </center>
+
+    </div>
+    <div id="tab7-content" class="tab-content">
+        <center>
+            <iframe src="cliques/index.html" frameborder="0" height="750px" width="100%"></iframe>
+        </center>
+
+    </div>
+    <div id="tab8-content" class="tab-content">
+
+        <center>
+           <iframe src="https://beelzebabe.atabook.org/" frameborder="0" height="750px" width="100%"></iframe>
+        </center>
+
+    </div>
+    <div id="tab9-content" class="tab-content">
+    <div style="Background-color:deeppink; padding: 5px; text-decoration:none;">
+    <center>
+    <nav style="color:deeppink; text-decoration:none;">
+    
+    <a href="#borders">-Borders</a>
+    <a href="#misc">-Misc</a>
+    <a href="#div-boxes">-Div Boxes</a>
+</nav>
+</center>
+</div>
+<div id="borders">
+        <center>
+        <h1> Borders</h1>
+           <img src="assets/border1%20(2).png" alt="bunny border">
+           
+           <img src="assets/border.png" alt="bunny border 2">
+              <img src="assets/leotopcol.png">
+        <img src="assets/leobotcol.png">
+           <img src="assets/leotop.png">
+              <img src="assets/leobot.png">
+        <img src="assets/Tumblr_l_177569439062729.gif"> 
+
+        
+        
+           </center>
+           </div>
+           <div id="misc">
+           <center>
+           <h1> misc </h1>
+           <img src="../../i.ibb.co/mN1XDvD/Doll3.gif"> 
+           <img src="assets/pink%20mantis%20.png">
+           <img src="assets/blue%20mantis.png">
+           <img src="assets/purp%20mantis.png">
+           <img src="assets/smoking%20mantis%20pink.gif">
+           <img src="assets/blue%20smoking%20mantis.gif">
+           <img src="assets/smoking%20purple%20mantis.gif">
+           <img src="assets/bunnydance%20(1).gif" alt="Description of image">
+        </center>
+        </div>
+    <center<
+    <div id="div-boxes">
+    <h1> Div Boxes</h1>
+  <div style="width: 300px; height: 600px; border:deeppink solid 3px; overflow: auto; padding: 10px; background-color: grey;">
+  
+  <center>
+<div style="width: 256px; height: 256px; background-image: url('../../i.ibb.co/DDY5PJXT/1000079657.png'); background-size: cover; border: none; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+    
+    <!-- Spacer to position content correctly -->
+    <div style="width: 200px; height: 10px; border: none;"></div>
+
+    <!-- Scrollable content box -->
+    <div style="width: 220px; max-height: 126px; overflow: auto; background: transparent; border: none; color: white; text-align: center; font-family: verdana; font-size: 12;">
+                
+                words words
+      <br> words</br>
+    </div>
+
+    </div>
+  <textarea style="border:deeppink solid 1px;">
+    <div style="width: 300px; height: 600px; border:deeppink solid 3px; overflow: auto; padding: 10px;">
+  
+  <center>
+<div style="width: 256px; height: 256px; background-image: url('../../i.ibb.co/DDY5PJXT/1000079657.png'); background-size: cover; border: none; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+    
+    <!-- Spacer to position content correctly -->
+    <div style="width: 200px; height: 10px; border: none;"></div>
+
+    <!-- Scrollable content box -->
+    <div style="width: 220px; max-height: 126px; overflow: auto; background: transparent; border: none; color: white; text-align: center; font-family: verdana; font-size: 12;">
+                
+                words words
+      <br> words</br>
+    </div>
+
+</div>
+  </textarea>
+    
+<div style="width: 256px; height: 256px; background-image: url('../../i.ibb.co/k2ptTbh5/Untitled-03-23-2025-05-00-37-1.png'); background-size: cover; border: none; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+    
+    <!-- Spacer to position content correctly -->
+    <div style="width: 200px; height: 10px; border: none;"></div>
+
+    <!-- Scrollable content box -->
+    <div style="width: 220px; max-height: 126px; overflow: auto; background: transparent; border: none; color: white; text-align: center; font-family: verdana; font-size: 12;">
+                
+                words words
+      <br> words</br>
+    </div>
+
+    </div>
+<textarea style="border: deeppink solid 1px;">
+<div style="width: 256px; height: 256px; background-image: url('../../i.ibb.co/k2ptTbh5/Untitled-03-23-2025-05-00-37-1.png'); background-size: cover; border: none; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+    
+    <!-- Spacer to position content correctly -->
+    <div style="width: 200px; height: 10px; border: none;"></div>
+
+    <!-- Scrollable content box -->
+    <div style="width: 220px; max-height: 126px; overflow: auto; background: transparent; border: none; color: white; text-align: center; font-family: verdana; font-size: 12;">
+                
+                words words
+      <br> words</br>
+    </div>
+
+</div> </textarea>
+
+<div style="width: 256px; height: 256px; background-image: url('../../i.ibb.co/wDv3Thv/Untitled-03-23-2025-05-00-37.png'); background-size: cover; border: none; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+    
+    <!-- Spacer to position content correctly -->
+    <div style="width: 200px; height: 10px; border: none;"></div>
+
+    <!-- Scrollable content box -->
+    <div style="width: 220px; max-height: 126px; overflow: auto; background: transparent; border: none; color: white; text-align: center; font-family: verdana; font-size: 12;">
+                
+                words words
+      <br> words</br>
+    </div>
+
+</div>
+<textarea style="border:deeppink solid 1x;">
+<div style="width: 256px; height: 256px; background-image: url('../../i.ibb.co/wDv3Thv/Untitled-03-23-2025-05-00-37.png'); background-size: cover; border: none; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+    
+    <!-- Spacer to position content correctly -->
+    <div style="width: 200px; height: 10px; border: none;"></div>
+
+    <!-- Scrollable content box -->
+    <div style="width: 220px; max-height: 126px; overflow: auto; background: transparent; border: none; color: white; text-align: center; font-family: verdana; font-size: 12;">
+                
+                words words
+      <br> words</br>
+    </div>
+
+</div>
+
+</textarea>
+
+</div>
+</div>
+</center>
+</center>
+        
+</div>
+    <div id="tab10-content" class="tab-content">
+
+        <center>
+            <iframe src="../shrines/index.html" frameborder="0" height="750px" width="100%"></iframe>
+        </center>
+
+    </div>
+
+       
+                                                                                                                 
+    <footer>
+        <center>
+       2025
+                                                       </center>
+    </footer>
+     <button class="toggle-button" onclick="toggleTabContainer()" style="background-color: black;">☰</button>
+
+<script>
+    // Listen for height updates from ALL iframes
+    window.addEventListener('message', (event) => {
+      if (event.data.type === 'iframeHeight') {
+        // Find the iframe that sent the message
+        const iframes = document.getElementsByTagName('iframe');
+        for (let iframe of iframes) {
+          if (iframe.contentWindow === event.source) {
+            iframe.style.height = event.data.height + 'px';
+            break;
+          }
+        }
+      }
+    });
+  </script>
+    <script>
+        function changeTabContent(tabNumber) {
+            var contents = document.querySelectorAll('.tab-content');
+            contents.forEach(function (content) {
+                content.classList.remove('active');
+            });
+
+            document.getElementById('tab' + tabNumber + '-content').classList.add('active');
+        }
+
+        function toggleTabContainer() {
+            var container = document.getElementById('tab-container');
+            if (container.style.transform === 'translateX(0%)') {
+                container.style.transform = 'translateX(100%)';
+            } else {
+                container.style.transform = 'translateX(0%)';
+            }
+        }
+    </script>
+                                                                 <script>
+        let toggled = false;
+        document.getElementById("glitchImage").addEventListener("click", function() {
+            document.body.classList.add("glitch");
+            setTimeout(() => {
+                document.body.classList.remove("glitch");
+                toggled = !toggled;
+                if (toggled) {
+                    document.body.style.background = "black";
+                    document.body.style.color = "lime";
+                    document.body.style.fontFamily = "Courier, monospace";
+                    document.getElementById("title").textContent = "?";
+                } else {
+                    document.body.style.background = "black";
+                    document.body.style.color = "white";
+                    document.body.style.fontFamily = "Arial, sans-serif";
+                    document.getElementById("title").textContent = "Desire to be dissolved";
+                }
+            }, 1000);
+        });
+                                                                                                        </script>
+</body>
+                                                                 </html>

@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <atom:link href="https://beelzebabe.neocities.org/rss.xml" rel="self" type="application/rss+xml"/>
+        <title>Beelzebabe Blog</title>
+        <link>https://beelzebabe.neocities.org</link>
+        <description>A personal blog by Beelzebabe</description>
+        <language>en-us</language>
+        <pubDate>Tue, 18 Feb 2025 00:00:00 GMT</pubDate>
+        
+        <item>
+    <title>Self-care</title>
+    <link>Beelzebabe.neocities.org</link>
+    <description><![CDATA[<p> Sorry i haven't been posting lately. I've been taking a self care break. I get really engulfed in creating art and stuff to the point I'll start neglecting basic things for weeks to months. (Pretty sure it's a symptom of being bipolar) so right now I'm just being present in my everyday life. I hope to one day be able to balance these things. Thank you for understanding!</p>
+<center>
+<img src="https://i.ibb.co/b5SS5rc5/1000080487.png" alt="Description" style="max-width:360px"></center>]]></description>
+    <pubDate>Wed, 07 May 2025 22:06:00 GMT</pubDate>
+    <category>ME</category>
+</item>
+        <item>
+    <title>Color Swap</title>
+    <link>https://beelzebabe.neocities.org/home/Colorswap</link>
+    <description><![CDATA[<h2> Pixel Art Color Changer </h2>
+<p> Want my graphics in your favorite color instead of <i> my favorite color </i>?</p>
+<h3> Well I made a little tool for that! </h3>
+<a href="https://beelzebabe.neocities.org/home/Colorswap"> go try it! </a>
+<p> It's a color swap tool! It only targets specific colors, since it for pixel art. So trying it on images with anti aliasing wouldn't be practical</p>]]></description>
+    <pubDate>Mon, 14 Apr 2025 11:31:00 GMT</pubDate>
+    <category>site updates</category>
+</item>
+   <item>
+    <title>Poor Things</title>
+    <link>Beelzebabe.neocities.org/blog</link>
+    <description><![CDATA[
+<img src="https://i.ibb.co/bMnMGcq5/1000080108.png" alt="Description" style="max-width:500px">
+<p>I love how the reviews for the movie "Poor Things" are about 50/50 with either 5 stars or 1. Those who give it 1 being people who can only see a story at face value, and have a hard time with uncomfortable visuals/situations. 
+With my full awareness of how pretentious I might come off to someone like that; All the 5 stars are given by people who clearly have a higher level of thinking , empathy , and understanding. Not just of themselves but of the world around them and how those to things work it tandem. 
+
+There is so much I can say about this movie that nobody should be suprised if I don't write an entire breakdown of it one day.</p>
+
+<img src="https://i.ibb.co/SXGD4FNm/1000080109.png" alt="Description" style="max-width:500px">
+
+]]></description>
+    <pubDate>Sun, 13 Apr 2025 00:30:00 GMT</pubDate>
+    <category>MISC.</category>
+</item>
+    <item>
+    <title>Status.cafe</title>
+    <link>https://status.cafe/users/beelzebabe</link>
+    <description><![CDATA[
+<img src="https://i.ibb.co/4wGgDfH1/1000080218.png" alt="Description" style="max-width:360px">
+<p> I finally made a status.cafe</p>]]></description>
+    <pubDate>Wed, 09 Apr 2025 01:51:00 GMT</pubDate>
+    <category>ME</category>
+</item>
+    
+    <item>
+    <title>Deckonomicon</title>
+    <link>https://beelzebabe.neocities.org/Deckonomicon</link>
+    <description><![CDATA[<h1> I did it! </h1>
+<h2> I actually made a pixel clique!</h2>
+
+<p> So I completed the trading card pixel clique I was brainstorming! 
+ I named it Deckonomicon  which I felt was really fitting for my site haha. 
+ if you join, please leave a link in my guestbook! </p>]]></description>
+    <pubDate>Tue, 01 Apr 2025 08:09:00 GMT</pubDate>
+    <category>site updates</category>
+</item>
+   
+    <item>
+    <title>A few updates</title>
+    <link>http://beelzebabe.neocities.org</link>
+    <description><![CDATA[I added some cool freakin' hands to my home page, and some drippy slime div boxes under the graphics tab.]]></description>
+    <pubDate>Mon, 24 Mar 2025 06:10:00 GMT</pubDate>
+    <category>site updates</category>
+</item>    
+ <item>
+    <title>Ars Goetia</title>
+    <link>https://beelzebabe.neocities.org/home/Bookz/Ars_goetia/Index</link>
+    <description><![CDATA[Ahh, so I made a page that list all 72 demons in the Lesser Keys Of Solomon. It has Rank, seal metals, and descriptions. along with a filter system. Its not perfect yet but it exist lmfao.]]></description>
+    <pubDate>Mon, 17 Mar 2025 09:42:00 GMT</pubDate>
+    <category>site updates</category>
+</item>
+        <item>
+    <title>Omg game changer</title>
+    <link>https://beelzebabe.neocities.org</link>
+    <description><![CDATA[<h2>xml post generator</h2>
+<p> So, since my blog / rss feed on here has to be manually updated, I made me a little xml snippet generator! Because 9 times out of 10 I fuck up the syntax on a new post and its just annoying.</p>
+<h3> I gave it FEATURES </h3>
+
+  <ul>
+ <li>Direct image upload using imgbb</li>
+ <li>live preview</li>
+<li> post templates</li>
+<li> drafting </li>
+                      </ul>
+<p>
+but.. the layout is FUCKED right now. but after I get it pretty I'll definitely need to share the source code </p>
+
+
+<img src="https://i.ibb.co/NdQf95bZ/smo.png" alt="Description" style="max-width:360px"> ]]></description>
+    <pubDate>Thu, 13 Mar 2025 06:31:00 GMT</pubDate>
+    <category>site updates</category>
+</item>
+        
+        
+  <item>
+            <title>zanpo</title>
+            <link>https://beelzebabe.neocities.org/home/</link>
+            <description>
+                <![CDATA[
+                    
+                    <p>I'm sitting here thinking about Zanpo. I feel like I should really write something about it somewhere before the memory of it completely gets whipped from the internet. I've never seen anyone else mention it and it's been offline for almost 20 years now. It was so cool and quirky and it's definitely a website I would love a revival of. <img src="https://64.media.tumblr.com/a9f584a7e77a117204711af239400cbd/3d83bc42715cbaa6-cb/s400x600/781959f38d152f9133566985c0a32b1f096139ed.pnj">
+
+ </p>
+                ]]>
+            </description>
+            <pubDate>Fri, 21 Feb 2025 00:00:00 GMT</pubDate>
+            <category>ME</category>
+        </item>
+      
+<item>
+            <title>Darbie!</title>
+            <link>https://beelzebabe.neocities.org/home/dolls/docs/darbie</link>
+            <description>
+                <![CDATA[
+                    
+                    <p>Yay! Happy to show off the latest addition on the dollz page
+                    <a href="https://beelzebabe.neocities.org/home/dolls/docs/darbie"> <img src="https://beelzebabe.neocities.org/home/dolls/darb.png" 
+                         alt="darbie promo banner" 
+                         style="max-width: 360px; width: 100%; height: auto;">
+                    </a></p>
+                ]]>
+            </description>
+            <pubDate>Fri, 21 Feb 2025 00:00:00 GMT</pubDate>
+            <category>pixel dolls</category>
+        </item>
+
+
+
+        <item>
+            <title>BREAKTHAT Poetry</title>
+            <link>https://telegra.ph/BreakThat-02-22</link>
+            <description>
+                <![CDATA[
+                    <p>I like to spread my poetry across random corners of the internet once in a blue moon. If you ever find it, tell me about it.</p>
+                    <a href="https://telegra.ph/BreakThat-02-22" target="_blank">
+                        <img src="https://beelzebabe.neocities.org/home/assets/Other-made/20250221_195650.gif" 
+                             alt="Breakthat gif" 
+                             style="max-width: 360px; width: 100%; height: auto;">
+                    </a>
+                ]]>
+            </description>
+            <pubDate>Fri, 21 Feb 2025 00:00:00 GMT</pubDate>
+            <category>ME</category>
+        </item>
+
+        <item>
+            <title>New Ko-fi Shop Launch</title>
+            <link>https://ko-fi.com/beelzebabee</link>
+            <description>
+                <![CDATA[
+                    <p>I'm excited to announce the launch of my new Ko-fi shop! Check it out and support my work if you can.</p>
+                    <a href="https://ko-fi.com/beelzebabee" target="_blank">
+                        <img src="https://beelzebabe.neocities.org/home/assets/kofi-shop-text.png" 
+                             alt="Ko-fi Shop Banner" 
+                             style="max-width: 360px; width: 100%; height: auto;">
+                    </a>
+                ]]>
+            </description>
+            <pubDate>Thu, 20 Feb 2025 00:00:00 GMT</pubDate>
+            <category>site updates</category>
+        </item>
+
+
+        <item>
+            <title>Plinko Game Promotion</title>
+            <link>https://beelzebabe.neocities.org/home/Plinko/</link>
+            <description>
+                <![CDATA[
+                    <a href="https://stake.us/?c=Yay" target="_blank">
+                        <img src="https://beelzebabe.neocities.org/home/assets/stakegif.gif" 
+                             alt="Stake Promotion Banner" 
+                             style="max-width: 360px; width: 100%; height: auto;">
+                    </a>
+                ]]>
+            </description>
+            <pubDate>Tue, 18 Feb 2025 00:00:00 GMT</pubDate>
+            <category>Crypto Games</category>
+        </item>
+
+        <item>
+            <title>Personal Reflections</title>
+            <link>https://beelzebabe.neocities.org</link>
+            <description>
+                <![CDATA[
+                    <p>I don't know why I always try to make a blog like I'll actually open up when I use it. The truth is, I am such a reserved person when it comes to what goes on in the important parts of my mind. My friends would be very surprised by that because I seemingly tell all—which I kind of do, but only at the appropriate moments. It's hard to find the appropriate moments inside of a blog. I'll keep trying.</p>
+                ]]>
+            </description>
+            <pubDate>Tue, 11 Feb 2025 00:00:00 GMT</pubDate>
+            <category>ME</category>
+        </item>
+
+        <item>
+            <title>SLOTZ Affiliate Promotion</title>
+            <link>https://beelzebabe.neocities.org/home/SLOTZ/</link>
+            <description>
+                <![CDATA[
+                    <p>I am shamelessly plugging my affiliate link:</p>
+                    <a href="https://luckybird.io/?c=blogbonus" target="_blank">
+                        <img src="https://beelzebabe.neocities.org/home/assets/luckybird.gif" 
+                             alt="Luckybird Promotion Banner" 
+                             style="max-width: 360px; width: 100%; height: auto;">
+                    </a>
+                ]]>
+            </description>
+            <pubDate>Tue, 28 Jan 2025 00:00:00 GMT</pubDate>
+            <category>Crypto Games</category>
+        </item>
+
+        <item>
+            <title>Birthday Update</title>
+            <link>https://beelzebabe.neocities.org/home/Inspiration/</link>
+            <description>
+                <![CDATA[
+                    <p>As I was about to type about how I was hoping inspiration would strike me soon, I realized—it's my birthday today!</p>
+                ]]>
+            </description>
+            <pubDate>Tue, 28 Jan 2025 00:00:00 GMT</pubDate>
+            <category>ME</category>
+        </item>
+
+        <item>
+            <title>Site Restoration Begins</title>
+            <link>https://beelzebabe.neocities.org/home/finally-a-thing/</link>
+            <description>
+                <![CDATA[
+                    <p>I'm making a new blog (obviously) as a part of my site's very slow restoration—haha.</p>
+                ]]>
+            </description>
+            <pubDate>Fri, 10 Jan 2025 00:00:00 GMT</pubDate>
+            <category>site updates</category>
+        </item>
+    </channel>
+</rss>

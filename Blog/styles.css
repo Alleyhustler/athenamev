@@ -1,0 +1,132 @@
+body {
+    background-color: black;
+    font-family: monospace;
+    color: white;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+    font-size: 2rem; /* Adjust as needed */
+    animation: fadeColor 3s infinite alternate; /* 3s duration, infinite loop */
+    font-family: "Courier New", Courier, monospace;
+    text-align: center;
+    margin-top: 20px;
+}
+
+@keyframes fadeColor {
+    0% {
+        color: deeppink;
+    }
+    50% {
+        color: white;
+    }
+    100% {
+        color: deeppink;
+    }
+}
+
+#rss-content {
+    border: 1px solid deeppink;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 5px;
+    background-color: black;
+    color: white;
+    width: 80%;
+    margin-top: 30px;
+    align-self: center;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid deeppink;
+    border-radius: 5px;
+    background-color: black;
+    color: white;
+}
+
+h2 {
+    color: deeppink;
+    margin: 0;
+    font-size: 1.25rem;
+}
+
+h2 a {
+    text-decoration: none;
+    color: deeppink;
+}
+
+h2 a:hover {
+    text-decoration: underline;
+    color: hotpink;
+}
+
+p {
+    font-size: 1rem;
+    color: white;
+    margin: 10px 0 0;
+}
+
+small {
+    color: hotpink;
+}
+
+.date {
+    font-size: 0.9rem;
+    color: hotpink;
+    margin-top: 5px;
+}
+
+.error {
+    color: red;
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+/* Directory Section as a Navbar */
+#navbar {
+    width: 100%;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    border-bottom: 2px solid deeppink;
+}
+
+#navbar a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    margin: 0 15px;
+}
+
+#navbar a:hover {
+    color: hotpink;
+    text-decoration: underline;
+}
+
+#navbar a.active {
+    color: deeppink;
+    font-weight: bold;
+}
+::-webkit-scrollbar {
+            width: 3px; /* Set the width of the scrollbar */
+        }
+        /* Customize scrollbar track */
+        ::-webkit-scrollbar-track {
+            background: black; /* Set track background color */
+        }
+        /* Customize scrollbar thumb */
+        ::-webkit-scrollbar-thumb {
+            background: black;
+            border: deeppink solid 1px; /* Set thumb color */
+        }

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from beelzebabe.neocities.org/home/Bookz/Books/book_view by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 May 2025 18:15:47 GMT -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Viewer ✦ Kawaii Cyber Edition</title>
+    <script src="../../../../cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;700&amp;display=swap');
+
+        body {
+            text-align: center;
+            font-family: 'Poppins', sans-serif;
+            background: #0a0a0a;
+            color: #ff1493;
+            margin: 0;
+            padding: 20px;
+              cursor: url(../../assets/auto.png), auto;
+        }
+
+        h2 {
+            font-size: 2em;
+            font-weight: 700;
+            text-shadow: 0px 0px 10px #ff1493;
+        }
+
+        canvas {
+          width: 200px;
+          height:auto;
+            border: 2px solid #ff1493;
+           
+            box-shadow: 0px 0px 20px #ff1493;
+            margin: 20px auto;
+            display: block;
+            background: #111;
+              cursor: url(../../assets/auto.png), auto;
+        }
+
+        .controls {
+            margin-top: 10px;
+        }
+
+        button {
+            padding: 12px 18px;
+            margin: 8px;
+            font-size: 1rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 10px;
+              cursor: url(../../assets/pointer.png), auto;
+            color: #0a0a0a;
+            background: #ff1493;
+            box-shadow: 0px 0px 10px #ff1493;
+            transition: all 0.2s ease-in-out;
+        }
+
+        button:hover {
+            background: #ff44aa;
+            box-shadow: 0px 0px 15px #ff44aa;
+            transform: scale(1.1);
+             cursor: url(../../assets/pointer.png), auto;
+        }
+
+        .loading {
+            display: none;
+            font-size: 1.2em;
+            font-weight: bold;
+            text-shadow: 0px 0px 10px #ff1493;
+        }
+
+        .page-indicator {
+            font-size: 1.1rem;
+            font-weight: 400;
+            text-shadow: 0px 0px 8px #ff1493;
+              cursor: url(../../assets/pointer.png), auto;
+        }
+    </style>
+</head>
+<body>
+    <h2></h2>
+    
+    <div class="loading" id="loading">Loading... ✨</div>
+    <canvas id="pdf-canvas"></canvas>
+    
+    <div class="controls">
+        <button onclick="prevPage()"><</button>
+        <span class="page-indicator">Page: <span id="page-num">1</span> / <span id="page-count">?</span></span>
+        <button onclick="nextPage()">></button>
+        <br>
+      
+    </div>
+
+    <script>
+        const pdfUrl = "Sorceress%20Cagliastro%20-%20Blood%20Sorcery%20Bible.pdf";
+        let pdfDoc = null, pageNum = 1, scale = 1.5, canvas = document.getElementById("pdf-canvas"), ctx = canvas.getContext("2d");
+
+        let pdfjsLib = window['pdfjs-dist/build/pdf'];
+        pdfjsLib.GlobalWorkerOptions.workerSrc = "../../../../cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js";
+
+        function renderPage(num) {
+            document.getElementById("loading").style.display = "block";
+            
+            pdfDoc.getPage(num).then(page => {
+                let viewport = page.getViewport({ scale });
+                canvas.width = viewport.width;
+                canvas.height = viewport.height;
+
+                let renderContext = { canvasContext: ctx, viewport: viewport };
+                page.render(renderContext).promise.then(() => {
+                    document.getElementById("loading").style.display = "none";
+                });
+
+                document.getElementById("page-num").textContent = num;
+            });
+        }
+
+        function prevPage() {
+            if (pageNum <= 1) return;
+            pageNum--;
+            renderPage(pageNum);
+        }
+
+        function nextPage() {
+            if (pageNum >= pdfDoc.numPages) return;
+            pageNum++;
+            renderPage(pageNum);
+        }
+
+        function zoomIn() {
+            scale += 0.2;
+            renderPage(pageNum);
+        }
+
+        function zoomOut() {
+            if (scale > 0.5) {
+                scale -= 0.2;
+                renderPage(pageNum);
+            }
+        }
+
+        function handleKeyDown(event) {
+            if (event.key === "ArrowRight") nextPage();
+            else if (event.key === "ArrowLeft") prevPage();
+            else if (event.key === "+") zoomIn();
+            else if (event.key === "-") zoomOut();
+        }
+
+        document.addEventListener("keydown", handleKeyDown);
+
+        pdfjsLib.getDocument(pdfUrl).promise.then(pdf => {
+            pdfDoc = pdf;
+            document.getElementById("page-count").textContent = pdfDoc.numPages;
+            renderPage(pageNum);
+        }).catch(error => {
+            console.error("Error loading PDF: ", error);
+            document.body.innerHTML = "<h3 style='color: #ff1493; text-shadow: 0px 0px 10px #ff1493;'>Failed to load PDF. Please check the file path or CORS settings.</h3>";
+        });
+    </script>
+</body>
+
+<!-- Mirrored from beelzebabe.neocities.org/home/Bookz/Books/book_view by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 May 2025 18:15:48 GMT -->
+</html>

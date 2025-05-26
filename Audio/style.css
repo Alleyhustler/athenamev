@@ -1,0 +1,79 @@
+body {
+    background-color: black;
+    color: deepPink;
+    font-family: 'Pixellari', sans-serif;
+
+            
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.player {
+    background: black;
+    padding: 20px;
+    border-radius: 0px;
+    text-align: center;
+    box-shadow: 0 0 10px deepPink;
+  width:300px;
+}
+
+h2 {
+    margin-bottom: 10px;
+}
+
+#trackTitle {
+    margin: 10px 0;
+    font-size: 16px;
+  font-family: monospace;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+button {
+    background:black;
+    border: solid deeppink 1px;
+    color: white;
+    padding: 10px 15px;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background: #ff1493;
+   cursor: url('../home/assets/auto.png'), auto;
+    
+}
+
+input[type="range"] {
+    margin: 10px;
+    accent-color: deepPink;
+ 
+}
+  /* Scrollbar Styling */
+    ::-webkit-scrollbar {
+      width: 3px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: black;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: black;
+      border: deeppink solid 1px;
+    }
+    @font-face {
+  font-family: 'Pixellari';
+  src: url('../home/Pixellari.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}

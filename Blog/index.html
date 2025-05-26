@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from beelzebabe.neocities.org/Blog/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 May 2025 18:15:43 GMT -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>beelzebabe's blog</title>
+    <style>
+        body {
+            background-color: black;
+            font-family: monospace;
+            color: white;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+             cursor:  url(../home/assets/auto.png), auto;
+        }
+
+        h1 {
+            font-size: 2rem; /* Adjust as needed */
+            animation: fadeColor 3s infinite alternate; /* 3s duration, infinite loop */
+            font-family: "Courier New", Courier, monospace;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        @keyframes fadeColor {
+            0% {
+                color: deeppink;
+            }
+            50% {
+                color: white;
+            }
+            100% {
+                color: deeppink;
+            }
+        }
+
+        #rss-content {
+            border: 1px solid deeppink;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 5px;
+            background-color: black;
+            color: white;
+            width: 80%;
+            margin-top: 30px;
+            align-self: center;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid deeppink;
+            border-radius: 5px;
+            background-color: black;
+            color: white;
+        }
+
+        h2 {
+            color: deeppink;
+            margin: 0;
+            font-size: 1.25rem;
+        }
+
+        h2 a {
+            text-decoration: none;
+            color: deeppink;
+        }
+
+        h2 a:hover {
+            text-decoration: underline;
+            color: hotpink;
+        }
+
+        p {
+            font-size: 1rem;
+            color: white;
+            margin: 10px 0 0;
+        }
+
+        small {
+            color: hotpink;
+        }
+
+        .date {
+            font-size: 0.9rem;
+            color: hotpink;
+            margin-top: 5px;
+        }
+
+        .error {
+            color: red;
+            text-align: center;
+            font-size: 1.2rem;
+        }
+
+        /* Directory Section as a Navbar */
+        #navbar {
+            width: 100%;
+            background-color: black;
+            display: flex;
+            justify-content: center;
+            padding: 10px;
+            border-bottom: 2px solid deeppink;
+        }
+
+        #navbar a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            margin: 0 15px;
+        }
+
+        #navbar a:hover {
+            color: hotpink;
+            text-decoration: underline;
+             cursor:  url(../home/assets/pointer.png), auto;
+        }
+
+        #navbar a.active {
+            color: deeppink;
+            font-weight: bold;
+        }
+        .click{
+          border: deeppink 0px solid;}
+          
+          a{
+            text-decoration: none;
+            color:deeppink;}
+            .img{
+              max-width: 300px;
+               cursor:  url(../home/assets/pointer.png), auto;
+            }
+            ::-webkit-scrollbar {
+            width: 3px; /* Set the width of the scrollbar */
+        }
+        /* Customize scrollbar track */
+        ::-webkit-scrollbar-track {
+            background: black; /* Set track background color */
+        }
+        /* Customize scrollbar thumb */
+        ::-webkit-scrollbar-thumb {
+            background: black;
+            border: deeppink solid 1px; /* Set thumb color */
+        }
+        
+        a{
+           cursor:  url(../home/assets/pointer.png), auto;
+        }
+      li {
+    position: relative; /* Add this for badge positioning */
+}
+
+.new-badge {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-color: deeppink;
+    color: white;
+    padding: 2px 5px;
+    border-radius: 3px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    animation: blink 1s infinite alternate;
+}
+
+@keyframes blink {
+    from { opacity: 1; }
+    to { opacity: 0.5; }
+}
+    </style>
+</head>
+<body>
+    <h1>CHANTING</h1>
+    
+    <!-- Navbar for Categories -->
+    <div id="navbar">
+        <a href="#" class="active" id="all-posts">All Posts</a>
+        <!-- Categories will be inserted here dynamically -->
+    </div>
+
+<div class="click">
+    <a href="Rss.xml" target="_blank" style="color: #FF1493; text-decoration: none; font-family: monospace; font-size: smaller;">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/4/43/Feed-icon.svg" alt="RSS Feed Icon" width="24" height="24" style="filter: hue-rotate(-120deg) saturate(5); vertical-align: middle;">
+        RSS
+    </a>
+</div>
+    
+
+    <div id="rss-content">Loading RSS Feed...</div>
+
+ <script>
+    // CORS Proxy URL (can be replaced with a different CORS proxy if needed)
+    const corsProxy = 'https://api.allorigins.win/get?url=';
+    const rssUrl = 'Rss.xml'; 
+    const proxiedUrl = corsProxy + encodeURIComponent(rssUrl);
+    const DAYS_THRESHOLD = 7; // Posts newer than 7 days get the badge
+
+    // Function to format date into a readable format
+    function formatDate(dateString) {
+        const date = new Date(dateString);
+        return date.toLocaleString('en-US', {
+            weekday: 'short', 
+            year: 'numeric', 
+            month: 'short', 
+            day: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit'
+        });
+    }
+
+    // Fetch the RSS feed using the proxy to avoid CORS issues
+    fetch(proxiedUrl)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Failed to fetch RSS feed');
+            }
+            return response.json();
+        })
+        .then(data => {
+            const parser = new DOMParser();
+            const xmlDoc = parser.parseFromString(data.contents, 'application/xml');
+            
+            const parseError = xmlDoc.querySelector('parsererror');
+            if (parseError) {
+                throw new Error('Error parsing the RSS feed');
+            }
+
+            const items = xmlDoc.querySelectorAll('item');
+            let htmlContent = '<ul>';
+            let categories = [];
+
+            items.forEach(item => {
+                const title = item.querySelector('title').textContent;
+                const link = item.querySelector('link').textContent;
+                const description = item.querySelector('description').textContent;
+                const pubDate = item.querySelector('pubDate').textContent;
+                const category = item.querySelector('category') ? item.querySelector('category').textContent : 'Uncategorized';
+
+                // Calculate post age
+                const postDate = new Date(pubDate);
+                const currentDate = new Date();
+                const ageInDays = Math.floor((currentDate - postDate) / (1000 * 60 * 60 * 24));
+                const newBadge = ageInDays <= DAYS_THRESHOLD 
+                    ? '<div class="new-badge">NEW</div>' 
+                    : '';
+
+                // Add category to array (if it's not already there)
+                if (!categories.includes(category)) {
+                    categories.push(category);
+                }
+
+                // Build HTML for each post
+                htmlContent += `
+                    <li class="post-item" data-category="${category}">
+                        ${newBadge}
+                        <h2><a href="${link}" target="_blank">${title}</a></h2>
+                        <p>${description}</p>
+                        <small class="date">${formatDate(pubDate)}</small>
+                    </li>
+                `;
+            });
+
+            htmlContent += '</ul>';
+
+            // Inject the HTML content into the div
+            document.getElementById('rss-content').innerHTML = htmlContent;
+
+            // Generate navbar with categories
+            const navbar = document.getElementById('navbar');
+            categories.forEach(category => {
+                const categoryLink = document.createElement('a');
+                categoryLink.href = "#";
+                categoryLink.textContent = category;
+                categoryLink.addEventListener('click', (e) => {
+                    // Handle filtering posts by category
+                    e.preventDefault();
+                    filterPostsByCategory(category, navbar);
+                });
+                navbar.appendChild(categoryLink);
+            });
+
+            // Add "All Posts" option to navbar
+            const allPostsLink = document.getElementById('all-posts');
+            allPostsLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                filterPostsByCategory('All', navbar);
+            });
+        })
+        .catch(error => {
+            // Display an error message in case of failure
+            console.error('Error:', error);
+            document.getElementById('rss-content').innerHTML = '<p class="error">Error loading the RSS feed.</p>';
+        });
+
+    // Filter posts by category
+    function filterPostsByCategory(category, navbar) {
+        // Show only posts that match the selected category
+        const posts = document.querySelectorAll('.post-item');
+        posts.forEach(post => {
+            if (category === 'All' || post.getAttribute('data-category') === category) {
+                post.style.display = 'block';
+            } else {
+                post.style.display = 'none';
+            }
+        });
+
+        // Set active state for navbar links
+        const links = navbar.querySelectorAll('a');
+        links.forEach(link => link.classList.remove('active'));
+        const activeLink = Array.from(links).find(link => link.textContent === category);
+        if (activeLink) {
+            activeLink.classList.add('active');
+        }
+    }
+</script>
+</body>
+
+<!-- Mirrored from beelzebabe.neocities.org/Blog/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 May 2025 18:15:43 GMT -->
+</html>

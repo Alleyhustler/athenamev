@@ -1,0 +1,137 @@
+@font-face {
+    font-family: 'MyCustomFont';
+    src: url('blockobit.html') format('woff2'),
+         url('blockobit-2.html') format('woff'),
+         url('blockobit-3.html') format('truetype');
+}
+ ::-webkit-scrollbar {
+            width: 3px; /* Set the width of the scrollbar */
+        }
+        /* Customize scrollbar track */
+        ::-webkit-scrollbar-track {
+            background: black; /* Set track background color */
+        }
+        /* Customize scrollbar thumb */
+        ::-webkit-scrollbar-thumb {
+            background: black;
+            border: deeppink solid 1px; /* Set thumb color */
+        }
+
+html{
+ cursor:  url(../../assets/auto.png), auto;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background: #000;
+    color: #ff1493;
+    cursor: url(../../assets/auto.png), auto;
+}
+
+.header {
+    text-align: center;
+    padding: 20px;
+    background: #111;
+    color: #ff1493;
+}
+
+.doll-list, .type-list, .color-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+    cursor: url(../../assets/pointer.png), auto ;
+}
+
+.doll-item, .type-item, .color-item {
+    background: #222;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 5px rgba(255, 20, 147, 0.3);
+    cursor: url(../../assets/pointer.png), auto ;
+}
+
+.thumbnail-container {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    cursor: url(../../assets/pointer.png), auto ;
+}
+
+.thumbnail {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    cursor:  url(../../assets/pointer.png), auto;
+  
+}
+
+.doll-name, .type-name, .color-name {
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+    color: #ff1493;
+     cursor: url(../../assets/pointer.png), auto;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+  cursor:  url(../../assets/pointer.png), auto;
+}
+
+.nav {
+    padding: 10px;
+    background: #111;
+}
+
+.nav a {
+    color: #ff1493;
+    text-decoration: none;
+    margin-right: 15px;
+    cursor: url(../../assets/pointer.png), auto;
+}
+
+.main-image {
+    max-width: 800px;
+    margin: 20px auto;
+    text-align: center;
+    cursor: url(../../assets/pointer.png), auto;
+}
+
+.main-image img {
+    max-width: 100%;
+    border: 3px solid #ff1493;
+    border-radius: 10px;
+    cursor: url(../../assets/pointer.png), auto;
+}
+
+.nav-thumbs {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin: 20px 0;
+    cursor: url(../../assets/pointer.png), auto;
+}
+
+.nav-thumb img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    border: 2px solid #ddd;
+    cursor: url(../../assets/pointer.png), auto;
+}
+
+.nav-thumb:hover img {
+    border-color: #ff6666;
+    cursor: url(../../assets/pointer.png), auto;
+}
+
+.magazines{
+  margin: 0px;
+  align: left;
+    cursor:  url(../../assets/pointer.png), auto;
+}
+  

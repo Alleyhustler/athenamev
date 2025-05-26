@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+
+<!-- Mirrored from beelzebabe.neocities.org/home/timestamp-widget/timestamp by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 May 2025 18:15:36 GMT -->
+<head>
+    <title>Last Modified Timestamp Widget</title>
+ <style>
+    /* Style for the timestamp container */
+    #timestamp {
+        font-family: monospace;
+        font-size: 16px;
+        color: deeppink;
+        padding: 10px;
+        border: 1px solid hotpink;
+        border-radius: 5px;
+        margin-top: 20px;
+        box-shadow: 0 0 15px deeppink; /* Deeppink glow */
+    }
+    
+    /* Center the timestamp container */
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: black;
+    }
+</style>
+
+</head>
+
+<body>
+    <div id="timestamp"></div>
+
+    <script>
+        // Function to fetch last modified timestamp of a webpage
+        function getLastModifiedTimestamp(url) {
+            var xhr = new XMLHttpRequest();
+            xhr.open('HEAD.html', url, true);
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    var lastModified = xhr.getResponseHeader('Last-Modified');
+                    if (lastModified) {
+                        var formattedDate = new Date(lastModified).toLocaleString();
+                        document.getElementById('timestamp').innerText = 'Last modified: ' + formattedDate;
+                    } else {
+                        document.getElementById('timestamp').innerText = 'Last modified timestamp not found.';
+                    }
+                } else if (xhr.readyState === 4) {
+                    document.getElementById('timestamp').innerText = 'Error fetching last modified timestamp.';
+                }
+            };
+            xhr.send();
+        }
+        
+        // Call the function with the URL of the webpage
+        getLastModifiedTimestamp('../index.html');
+    </script>
+</body>
+
+
+<!-- Mirrored from beelzebabe.neocities.org/home/timestamp-widget/timestamp by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 May 2025 18:15:36 GMT -->
+</html>

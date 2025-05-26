@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from beelzebabe.neocities.org/home/Bookz/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 May 2025 18:15:23 GMT -->
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Beelzebabe's Magick Library</title>
+  <style>
+    /* Basic Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: monospace;
+      background-color: black;
+      color: deeppink;
+      cursor: url('../assets/auto.png'), auto;
+    }
+    
+    /* Grid Container Setup */
+    .container {
+      display: grid;
+      grid-template-areas:
+        "header header header"
+        "sidebar-left main sidebar-right"
+        ;
+      grid-template-columns: 300px 1fr 300px;
+      grid-template-rows: auto 1fr auto;
+      height: 95vh;
+    }
+
+    /* Header */
+    header {
+      grid-area: header;
+      text-align: center;
+      padding: 1rem;
+      border-bottom: 3px solid deeppink;
+      animation: flashing 3s infinite;
+    }
+
+    @keyframes flashing {
+      0% { color: deeppink; }
+      30% { color: hotpink; }
+      50% { color: black; }
+      80% { color: deeppink; }
+    }
+
+    /* Sidebar Styling */
+    .sidebar-left, .sidebar-right {
+      padding: 1rem;
+      overflow-y: auto;
+    }
+    .sidebar-left {
+      grid-area: sidebar-left;
+      border-right: 3px solid deeppink;
+    }
+    .sidebar-right {
+      grid-area: sidebar-right;
+      border-left: 3px solid deeppink;
+      text-align: center;
+    }
+
+    /* Main Content */
+    .main {
+      grid-area: main;
+      padding: 1rem;
+      border: 3px solid deeppink;
+      overflow-y: auto;
+      text-align: center;
+    }
+
+    /* Footer */
+    footer {
+      
+      text-align: center;
+     border-top: 3px solid deeppink;
+      width: 100%;
+      
+    }
+
+    /* Link and List Styling */
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    li {
+      background: black;
+      padding: 10px;
+      margin: 10px 0;
+      font-size: 18px;
+      text-align: center;
+      border: 1px solid deeppink;
+      max-width: 250px;
+      box-shadow: inset 0 -4px 12px indigo;
+    }
+
+    li:hover {
+      background-image: url('../assets/sparkles2.gif');
+      border: solid indigo 1px;
+    }
+
+    a {
+      display: inline-block;
+      text-decoration: none;
+      color: deeppink;
+      font-weight: bold;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    a:hover {
+            cursor: url('../assets/pointer.png'), auto;
+      animation: shake 0.4s;
+    }
+
+    @keyframes shake {
+      0% { transform: translateX(0); }
+      25% { transform: translateX(3px); }
+      50% { transform: translateX(-3px); }
+      75% { transform: translateX(3px); }
+      100% { transform: translateX(0); }
+    }
+
+    /* Scrollbar Styling */
+    ::-webkit-scrollbar {
+      width: 3px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: black;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: black;
+      border: deeppink solid 1px;
+    }
+    h2{
+      color:white;}
+    }
+      img[src="https://beelzebabe.neocities.org/home/assets/chaosspiral.png"] {
+            width: 20px;
+            height: 20px;
+            transition: transform 2s linear;
+        }
+        img[src="https://beelzebabe.neocities.org/home/assets/chaosspiral.png"]:hover {
+            animation: spiral 3.5s linear infinite;
+        }
+        @keyframes spiral {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(-10px, -10px) rotate(90deg); }
+            50% { transform: translate(20px, -10px) rotate(180deg); }
+            75% { transform: translate(-10px, -20px) rotate(270deg); }
+            100% { transform: translate(0, 0) rotate(360deg); }
+        }
+        iframe{ 
+          border:none;
+          height: 100%;}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Magick Library</h1>
+    </header>
+
+    <nav class="sidebar-left">
+     <center> <h2>Bookz.pdf</h2> </center>
+      <ul>
+        <li><a href="https://www.dropbox.com/scl/fi/ponayli4t1qyws28o0gzs/Phil-Hine-Ego-Magick.pdf?rlkey=673ixqo7j142v1he7foz7rmfg&amp;st=93s43n23&amp;dl=0?dl=1" target="_blank">Group Explorations in Ego Magick - Phil Hine</a></li>
+        <li><a href="https://www.dropbox.com/scl/fi/nfxnh9yd0j4eg6nhbo8l9/Compendium-Rarissimum.pdf?rlkey=6p2w5bwko8zaf2jq17fkuk2k5&amp;st=06rcb125&amp;dl=0?dl=1" target="_blank">Compendium Rarissimum</a></li>
+        <li><a href="https://www.dropbox.com/scl/fi/9g1dtt90vlt6v2wbjfb38/theatre.pdf?rlkey=utdobalnhgpqv7rbqdmvpli4c&amp;st=4147l8wf&amp;dl=0?dl=1" target="_blank">The Theatre of Magick</a></li>
+        <li><a href="https://www.dropbox.com/scl/fi/yw9md9w8dlv4o0ixz70tc/AOS-Book-of-Satyrs-1.pdf?rlkey=owlemdtfo9akb3xdpl8a8x7z1&amp;st=v1jtc3cl&amp;dl=0?dl=1" target="_blank">A Book of Satyrs</a></li>
+      </ul>
+    </nav>
+
+    <main class="main">
+   
+  <img src="../assets/chaosspiral.png" alt="Chaos Spiral" style="height: 600px;">
+
+
+   
+
+    </main>
+
+    <aside class="sidebar-right">
+   <style>
+  .pdf-container {
+  
+     
+  }
+</style>
+
+<iframe 
+    class="pdf-container" 
+    src="Books/book_view.html">
+</iframe>
+
+    </aside>
+
+
+  </div>
+      <footer>
+      <a href="../index.html" style="cursor: url('../assets/pointer.png')">home</a>
+    </footer>
+</body>
+
+<!-- Mirrored from beelzebabe.neocities.org/home/Bookz/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 May 2025 18:15:25 GMT -->
+</html>

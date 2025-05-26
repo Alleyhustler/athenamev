@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from beelzebabe.neocities.org/Blog/post-make by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 May 2025 18:15:29 GMT -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rss Snippet Generator</title>
+    <script src="../../cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <style>:root {
+    --bg: black;
+    --accent: deeppink;
+    --text: #e0e0e0;
+    --secondary: white;
+    --border: deeppink;
+}
+
+body {
+    font-family: 'Courier New', monospace;
+    background: var(--bg);
+    color: var(--text);
+    width: 100%;
+    margin: 20 auto;
+    padding: 20px;
+}
+
+/* Header */
+h1 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+/* Toolbar */
+.toolbar {
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+ 
+  
+}
+
+/* Form Elements */
+select, input, textarea, button {
+    background: #333;
+    color: var(--text);
+    border: 1px solid var(--border);
+    padding: 10px;
+    border-radius: 4px;
+    font-family: inherit;
+}
+
+button, input, select {
+    background: var(--main);
+    border: deeppink solid 1px;
+    cursor: pointer;
+    transition: opacity 0.2s;
+  height: 50px;
+}
+
+button:hover {
+    opacity: 0.9;
+  border: white 2px solid;
+}
+
+/* Drop Zone */
+.drop-zone {
+    border: 1px dashed var(--secondary);
+    padding: 10px;
+    text-align: center;
+    border-radius: 6px;
+    transition: all 0.3s;
+  height: 50px;
+  
+}
+
+.drop-zone.dragover {
+    border-color: var(--accent);
+    background: #2a2a2a;
+}
+
+/* Layout Grid */
+.layout {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+/* Content Editing */
+.editor {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+}
+
+/* Preview & RSS Output */
+.preview-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#preview, #output {
+    padding: 15px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    background: #222;
+    min-height: 100px;
+}
+
+/* Bottom Section (Drafts & Settings) */
+.bottom-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.config, .draft-list {
+    border: 1px solid var(--border);
+    padding: 20px;
+    border-radius: 6px;
+    background: #1a1a1a;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .layout, .bottom-section {
+        grid-template-columns: 1fr;
+    }
+    }</style>
+    <link rel="stylesheet" href="styles.css"> 
+</head>
+<body>
+    <h1>RSS Post Snippet</h1>
+
+    <div class="toolbar">
+        <select id="templateSelect" onchange="loadTemplate(this.value)">
+            <option value=""> ✪</option>
+            <option value="doll"> Pixel Doll</option>
+            <option value="update"> Site Update</option>
+            <option value="personal"> Personal</option>
+        </select>
+        <button onclick="saveDraft()"> Save Draft</button>
+       <div id="dropZone" class="drop-zone">  <button onclick="document.getElementById('imageInput').click()"> Upload or Drop Image here</button>
+    </div>
+       
+    </div>
+
+    <div class="layout">
+        <div class="editor">
+            <input type="text" id="title" placeholder="Post Title">
+            <input type="url" id="link" placeholder="Post URL">
+            <textarea id="content" placeholder="Write your content here..." rows="12"></textarea>
+
+            <div class="toolbar">
+                <select id="category">
+                    <option value=""> Category</option>
+                    <option value="ME"> ME</option>
+                    <option value="site updates"> Site Updates</option>
+                    <option value="pixel dolls"> Pixel Dolls</option>
+                </select>
+                <input type="datetime-local" id="pubDate">
+            </div>
+
+            <button onclick="generatePost()"> Generate RSS</button>
+        </div>
+
+        <div class="preview-container">
+            <h3> Preview</h3>
+            <div id="preview"></div>
+
+            <h3> RSS Output</h3>
+            <textarea id="output" readonly rows="8"></textarea>
+            <button onclick="copyXML()">Copy XML</button>
+        </div>
+    </div>
+
+    <div class="bottom-section">
+        <div class="config">
+            <h3>⚙</h3>
+            <input type="text" id="imgbbKey" placeholder="ImgBB API Key">
+            <button onclick="saveConfig()">Save Configuration</button>
+
+            <h3>Custom Templates</h3>
+            <div class="toolbar">
+                <input type="text" id="newTemplateName" placeholder="Template name">
+                <button onclick="saveCustomTemplate()">Save Current as Template</button>
+            </div>
+            <div id="customTemplates"></div>
+        </div>
+
+        <div id="draftManager" class="draft-list">
+            <h3>📥 Drafts <button onclick="toggleDraftManager()">▼</button></h3>
+            <div id="draftList"></div>
+        </div>
+    </div>
+
+    <input type="file" id="imageInput" accept="image/*" hidden>
+    <center>
+<a href="https://codepen.io/Voidlux/pen/LEEPYGv" style="color:deeppink;">Get the code for this page</a>
+    </center>
+    <script>
+     
+    /// Configuration and Initialization
+    let IMGBB_KEY = localStorage.getItem('imgbbKey') || '';
+    let autoSaveInterval;
+
+    // Initialize on DOM load
+    document.addEventListener('DOMContentLoaded', () => {
+        document.getElementById('imgbbKey').value = IMGBB_KEY;
+        document.getElementById('pubDate').value = new Date().toISOString().slice(0, 16);
+        setupDragAndDrop();
+        loadCustomTemplates();
+        updateDraftList();
+        startAutoSave();
+    });
+
+    // Image Upload Function
+    async function handleImageUpload(file) {
+        if (!IMGBB_KEY) {
+            showError('Please set ImgBB API key first');
+            return null;
+        }
+
+        const formData = new FormData();
+        formData.append('image', file);
+
+        try {
+            const response = await fetch(`https://api.imgbb.com/1/upload?key=${IMGBB_KEY}`, {
+                method: 'POST',
+                body: formData
+            });
+            
+            const data = await response.json();
+            if (!data.success) throw new Error(data.error?.message || 'Upload failed');
+            
+            return data.data.url;
+        } catch (error) {
+            showError(`Image upload failed: ${error.message}`);
+            return null;
+        }
+    }
+
+    // File Input Handling
+    document.getElementById('imageInput').addEventListener('change', async (e) => {
+        const file = e.target.files[0];
+        if (file) {
+            const imageUrl = await handleImageUpload(file);
+            if (imageUrl) {
+                const textarea = document.getElementById('content');
+                const imageCode = `\n<img src="${imageUrl}" alt="Description" style="max-width:360px">`;
+                
+                // Insert at cursor position
+                const start = textarea.selectionStart;
+                const end = textarea.selectionEnd;
+                textarea.value = textarea.value.substring(0, start) + 
+                               imageCode + 
+                               textarea.value.substring(end);
+                
+                updatePreview();
+            }
+        }
+    });
+
+    // Drag and Drop Handling
+    function setupDragAndDrop() {
+        const dropZone = document.getElementById('dropZone');
+
+        dropZone.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            dropZone.classList.add('dragover');
+        });
+
+        dropZone.addEventListener('dragleave', () => {
+            dropZone.classList.remove('dragover');
+        });
+
+        dropZone.addEventListener('drop', async (e) => {
+            e.preventDefault();
+            dropZone.classList.remove('dragover');
+            
+            const files = e.dataTransfer.files;
+            if (files.length > 0) {
+                const imageUrl = await handleImageUpload(files[0]);
+                if (imageUrl) {
+                    const textarea = document.getElementById('content');
+                    textarea.value += `\n<img src="${imageUrl}" alt="Uploaded image">`;
+                    updatePreview();
+                }
+            }
+        });
+    }
+
+    // Draft Management
+    function saveDraft() {
+        const draft = {
+            title: document.getElementById('title').value,
+            link: document.getElementById('link').value,
+            content: document.getElementById('content').value,
+            category: document.getElementById('category').value,
+            pubDate: document.getElementById('pubDate').value,
+            timestamp: new Date().toLocaleString(),
+            id: Date.now()
+        };
+
+        const drafts = JSON.parse(localStorage.getItem('drafts') || '[]');
+        drafts.unshift(draft);
+        localStorage.setItem('drafts', JSON.stringify(drafts));
+        updateDraftList();
+    }
+
+    function loadDraft(id) {
+        const drafts = JSON.parse(localStorage.getItem('drafts') || '[]');
+        const draft = drafts.find(d => d.id === id);
+        if (!draft) return;
+
+        document.getElementById('title').value = draft.title || '';
+        document.getElementById('link').value = draft.link || '';
+        document.getElementById('content').value = draft.content || '';
+        document.getElementById('category').value = draft.category || '';
+        document.getElementById('pubDate').value = draft.pubDate || '';
+        updatePreview();
+    }
+
+    function deleteDraft(id) {
+        const drafts = JSON.parse(localStorage.getItem('drafts') || '[]');
+        const filtered = drafts.filter(d => d.id !== id);
+        localStorage.setItem('drafts', JSON.stringify(filtered));
+        updateDraftList();
+    }
+
+    function updateDraftList() {
+        const container = document.getElementById('draftList');
+        container.innerHTML = '';
+        
+        const drafts = JSON.parse(localStorage.getItem('drafts') || '[]');
+        drafts.forEach(draft => {
+            const div = document.createElement('div');
+            div.className = 'draft-item';
+            div.innerHTML = `
+                <span>${draft.timestamp} - ${draft.title || 'Untitled'}</span>
+                <div>
+                    <button onclick="loadDraft(${draft.id})">Load</button>
+                    <button onclick="deleteDraft(${draft.id})">🗑️</button>
+                </div>
+            `;
+            container.appendChild(div);
+        });
+    }
+
+    // Template System
+    const builtInTemplates = {
+        doll: {
+            title: "New Doll Release: [Name]",
+            content: `<img src="[IMAGE_URL]" alt="Doll preview" style="max-width: 360px">
+                     <h1>[DOLL NAME]</h1>
+                     <p>Description...</p>`,
+            category: "pixel dolls"
+        },
+        update: {
+            title: "Site Update: [Date]",
+            content: `<h2>Latest Changes</h2>
+                      <ul>
+                        <li>New feature 1</li>
+                        <li>Bug fixes</li>
+                      </ul>`,
+            category: "site updates"
+        },
+        personal: {
+            title: "Personal Reflection",
+            content: `<p>Today I was thinking about...</p>`,
+            category: "ME"
+        }
+    };
+
+    function saveCustomTemplate() {
+        const name = document.getElementById('newTemplateName').value;
+        if (!name) return showError('Please enter a template name');
+        
+        const templates = JSON.parse(localStorage.getItem('customTemplates') || '{}');
+        templates[name] = {
+            title: document.getElementById('title').value,
+            content: document.getElementById('content').value,
+            category: document.getElementById('category').value
+        };
+        
+        localStorage.setItem('customTemplates', JSON.stringify(templates));
+        loadCustomTemplates();
+    }
+
+    function loadCustomTemplates() {
+        const container = document.getElementById('customTemplates');
+        const templates = JSON.parse(localStorage.getItem('customTemplates') || '{}');
+        
+        container.innerHTML = '';
+        Object.entries(templates).forEach(([name, template]) => {
+            const btn = document.createElement('button');
+            btn.textContent = name;
+            btn.onclick = () => loadTemplate(template);
+            container.appendChild(btn);
+        });
+    }
+
+    function loadTemplate(template) {
+        if (typeof template === 'string') {
+            template = builtInTemplates[template];
+        }
+        if (!template) return;
+        
+        document.getElementById('title').value = template.title || '';
+        document.getElementById('content').value = template.content || '';
+        document.getElementById('category').value = template.category || '';
+        updatePreview();
+    }
+
+    // Preview System
+    function updatePreview() {
+        const content = document.getElementById('content').value;
+        document.getElementById('preview').innerHTML = marked.parse(content);
+    }
+
+    // Auto-Save Feature
+    function startAutoSave() {
+        autoSaveInterval = setInterval(() => {
+            if (document.getElementById('title').value.trim()) {
+                saveDraft();
+            }
+        }, 60000);
+    }
+
+    // Error Handling
+    function showError(message) {
+        const errorDiv = document.createElement('div');
+        errorDiv.className = 'error-message';
+        errorDiv.textContent = message;
+        document.body.prepend(errorDiv);
+        setTimeout(() => errorDiv.remove(), 5000);
+    }
+
+    // Configuration Management
+    function saveConfig() {
+        IMGBB_KEY = document.getElementById('imgbbKey').value;
+        localStorage.setItem('imgbbKey', IMGBB_KEY);
+        showError('Configuration saved!');
+    }
+
+    // Post Generation
+    function generatePost() {
+        const post = {
+            title: document.getElementById('title').value,
+            link: document.getElementById('link').value,
+            content: document.getElementById('content').value,
+            category: document.getElementById('category').value,
+            pubDate: new Date(document.getElementById('pubDate').value).toUTCString()
+        };
+
+        const xmlEntry = `<item>
+    <title>${escapeXML(post.title)}</title>
+    <link>${escapeXML(post.link)}</link>
+    <description><![CDATA[${post.content}]]></description>
+    <pubDate>${post.pubDate}</pubDate>
+    <category>${escapeXML(post.category)}</category>
+</item>`;
+
+        document.getElementById('output').value = xmlEntry;
+    }
+
+    // Utility Functions
+    function escapeXML(str) {
+        return str.replace(/[<>&'"]/g, c => ({
+            '<': '&lt;', '>': '&gt;', '&': '&amp;',
+            "'": '&apos;', '"': '&quot;'
+        }[c]));
+    }
+
+    function copyXML() {
+        navigator.clipboard.writeText(document.getElementById('output').value);
+        showError('XML copied to clipboard!');
+    }
+
+    // UI Helpers
+    function toggleDraftManager() {
+        const list = document.getElementById('draftList');
+        list.style.display = list.style.display === 'none' ? 'block' : 'none';
+    }</script>
+</body>
+
+<!-- Mirrored from beelzebabe.neocities.org/Blog/post-make by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 26 May 2025 18:15:30 GMT -->
+</html>
